@@ -3,7 +3,7 @@ package info.pniewski.aoc2022.day1;
 import info.pniewski.aoc2022.helper.PuzzleSolver;
 import info.pniewski.aoc2022.helper.PuzzleSolverTest;
 
-class SolverTest extends PuzzleSolverTest {
+public class SolverTest extends PuzzleSolverTest {
 
     @Override
     protected PuzzleSolver getSolver() {
@@ -29,4 +29,5 @@ class SolverTest extends PuzzleSolverTest {
     protected String getExpectedPuzzle2Result() {
         return "209914";
     }
+
 }

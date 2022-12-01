@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Base class for running test for solvers.
@@ -50,24 +51,24 @@ public abstract class PuzzleSolverTest {
     protected abstract String getExpectedPuzzle2Result();
 
     @Test
-    void checkCorrectInput() throws IOException, URISyntaxException {
+    public void testCorrectInput() throws IOException, URISyntaxException {
         var result = getSolver().solvePuzzle(getLines(String.format("day%s_test_input.txt", getDay())));
         Assertions.assertEquals(getExpectedCorrectResult(), result);
     }
 
     @Test
-    void checkPuzzleInput() throws IOException, URISyntaxException {
+    public void testPuzzleInput() throws IOException, URISyntaxException {
         var result = getSolver().solvePuzzle(getLines(String.format("day%s_puzzle_input.txt", getDay())));
         Assertions.assertEquals(getExpectedPuzzle1Result(), result);
     }
 
     @Test
-    void checkPuzzle2Input() throws IOException, URISyntaxException {
+    public void testPuzzle2Input() throws IOException, URISyntaxException {
         var result = getSolver().solvePuzzle2(getLines(String.format("day%s_puzzle_input.txt", getDay())));
         Assertions.assertEquals(getExpectedPuzzle2Result(), result);
     }
 
     private List<String> getLines(String fileName) throws URISyntaxException, IOException {
-        return Files.readAllLines(Paths.get(PuzzleSolverTest.class.getClassLoader().getResource(fileName).toURI()));
+        return Files.readAllLines(Paths.get(Objects.requireNonNull(PuzzleSolverTest.class.getClassLoader().getResource(fileName)).toURI()));
     }
 }

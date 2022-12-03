@@ -11,23 +11,23 @@ public class SolverTest extends PuzzleSolverTest {
     }
 
     @Override
-    protected String getDay() {
-        return "1";
+    protected int getDay() {
+        return 1;
     }
 
     @Override
-    protected String getExpectedCorrectResult() {
-        return "24000";
+    protected int getExpectedCorrectResult() {
+        return 24000;
     }
 
     @Override
-    protected String getExpectedPuzzle1Result() {
-        return "74198";
+    protected int getExpectedPuzzle1Result() {
+        return 74198;
     }
 
     @Override
-    protected String getExpectedPuzzle2Result() {
-        return "209914";
+    protected int getExpectedPuzzle2Result() {
+        return 209914;
     }
 
 }

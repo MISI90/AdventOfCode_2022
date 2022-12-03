@@ -10,12 +10,12 @@ import java.util.function.BiFunction;
 class Solver implements PuzzleSolver {
 
     @Override
-    public String solvePuzzle(List<String> inputs) {
+    public int solvePuzzle(List<String> inputs) {
         return solve(inputs, (option, s) -> Option.getOption(s));
     }
 
     @Override
-    public String solvePuzzle2(List<String> inputs) {
+    public int solvePuzzle2(List<String> inputs) {
         return solve(inputs, this::getOptionForExpectedResult);
     }
 
@@ -26,7 +26,7 @@ class Solver implements PuzzleSolver {
      * @param calculateOptionForPlayer2 {@link BiFunction} for calculating the correct option for player 2, inputs are {@link Option} - player 1 selected option, {@link String} - player 2 expected result in form of X, Y, Z
      * @return puzzle answer
      */
-    private String solve(List<String> inputs, BiFunction<Option, String, Option> calculateOptionForPlayer2) {
+    private int solve(List<String> inputs, BiFunction<Option, String, Option> calculateOptionForPlayer2) {
         int sum = 0;
         for (String input : inputs) {
             var battle = input.split(" ");
@@ -35,7 +35,7 @@ class Solver implements PuzzleSolver {
 
             sum = calculateAndAddResult(sum, player1, player2);
         }
-        return String.valueOf(sum);
+        return sum;
     }
 
     private Option getOptionForExpectedResult(Option player1, String expectedResult) {

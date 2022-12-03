@@ -10,16 +10,16 @@ import java.util.List;
 class Solver implements PuzzleSolver {
 
     @Override
-    public String solvePuzzle(List<String> inputs) {
+    public int solvePuzzle(List<String> inputs) {
         return solve(inputs, 1);
     }
 
     @Override
-    public String solvePuzzle2(List<String> inputs) {
+    public int solvePuzzle2(List<String> inputs) {
         return solve(inputs, 3);
     }
 
-    private String solve(List<String> inputs, int elvesToSum) {
+    private int solve(List<String> inputs, int elvesToSum) {
         List<Integer> sums = new ArrayList<>();
         int currentElfCalories = 0;
         for (String line : inputs) {
@@ -31,7 +31,7 @@ class Solver implements PuzzleSolver {
             }
         }
         Collections.sort(sums);
-        return String.valueOf(sums.stream().sorted(Comparator.reverseOrder()).limit(elvesToSum).mapToInt(Integer::intValue).sum());
+        return sums.stream().sorted(Comparator.reverseOrder()).limit(elvesToSum).mapToInt(Integer::intValue).sum();
 
     }
 }

@@ -27,28 +27,28 @@ public abstract class PuzzleSolverTest {
      *
      * @return day
      */
-    protected abstract String getDay();
+    protected abstract int getDay();
 
     /**
      * Get the expected result for example puzzle input from the description.
      *
      * @return expected result
      */
-    protected abstract String getExpectedCorrectResult();
+    protected abstract int getExpectedCorrectResult();
 
     /**
      * Get the expected result for first part of the puzzle.
      *
      * @return expected result
      */
-    protected abstract String getExpectedPuzzle1Result();
+    protected abstract int getExpectedPuzzle1Result();
 
     /**
      * Get the expected result for second part of the puzzle.
      *
      * @return expected result
      */
-    protected abstract String getExpectedPuzzle2Result();
+    protected abstract int getExpectedPuzzle2Result();
 
     @Test
     public void testCorrectInput() throws IOException, URISyntaxException {

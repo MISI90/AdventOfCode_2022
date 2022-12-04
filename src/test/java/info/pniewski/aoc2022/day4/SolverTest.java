@@ -1,6 +1,5 @@
-package info.pniewski.aoc2022;
+package info.pniewski.aoc2022.day4;
 
-import info.pniewski.aoc2022.day4.Solver;
 import info.pniewski.aoc2022.helper.PuzzleSolver;
 import info.pniewski.aoc2022.helper.PuzzleSolverTest;
 

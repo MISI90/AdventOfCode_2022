@@ -10,13 +10,13 @@ import java.util.function.BiFunction;
 class Solver implements PuzzleSolver {
 
     @Override
-    public int solvePuzzle(List<String> inputs) {
-        return solve(inputs, (option, s) -> Option.getOption(s));
+    public String solvePuzzle(List<String> inputs) {
+        return String.valueOf(solve(inputs, (option, s) -> Option.getOption(s)));
     }
 
     @Override
-    public int solvePuzzle2(List<String> inputs) {
-        return solve(inputs, this::getOptionForExpectedResult);
+    public String solvePuzzle2(List<String> inputs) {
+        return String.valueOf(solve(inputs, this::getOptionForExpectedResult));
     }
 
     /**

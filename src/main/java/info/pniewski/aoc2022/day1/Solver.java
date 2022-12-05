@@ -10,13 +10,13 @@ import java.util.List;
 class Solver implements PuzzleSolver {
 
     @Override
-    public int solvePuzzle(List<String> inputs) {
-        return solve(inputs, 1);
+    public String solvePuzzle(List<String> inputs) {
+        return String.valueOf(solve(inputs, 1));
     }
 
     @Override
-    public int solvePuzzle2(List<String> inputs) {
-        return solve(inputs, 3);
+    public String solvePuzzle2(List<String> inputs) {
+        return String.valueOf(solve(inputs, 3));
     }
 
     private int solve(List<String> inputs, int elvesToSum) {

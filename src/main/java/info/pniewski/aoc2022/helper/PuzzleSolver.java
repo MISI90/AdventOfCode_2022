@@ -13,7 +13,7 @@ public interface PuzzleSolver {
      * @param inputs lines for puzzle input
      * @return result
      */
-    int solvePuzzle(List<String> inputs);
+    String solvePuzzle(List<String> inputs);
 
     /**
      * Solve the second puzzle.
@@ -21,5 +21,5 @@ public interface PuzzleSolver {
      * @param inputs lines for puzzle input
      * @return result
      */
-    int solvePuzzle2(List<String> inputs);
+    String solvePuzzle2(List<String> inputs);
 }

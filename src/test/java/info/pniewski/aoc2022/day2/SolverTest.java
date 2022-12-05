@@ -15,17 +15,17 @@ public class SolverTest extends PuzzleSolverTest {
     }
 
     @Override
-    protected int getExpectedCorrectResult() {
-        return 15;
+    protected String getExpectedCorrectResult() {
+        return "15";
     }
 
     @Override
-    protected int getExpectedPuzzle1Result() {
-        return 9241;
+    protected String getExpectedPuzzle1Result() {
+        return "9241";
     }
 
     @Override
-    protected int getExpectedPuzzle2Result() {
-        return 14610;
+    protected String getExpectedPuzzle2Result() {
+        return "14610";
     }
 }

@@ -34,21 +34,21 @@ public abstract class PuzzleSolverTest {
      *
      * @return expected result
      */
-    protected abstract int getExpectedCorrectResult();
+    protected abstract String getExpectedCorrectResult();
 
     /**
      * Get the expected result for first part of the puzzle.
      *
      * @return expected result
      */
-    protected abstract int getExpectedPuzzle1Result();
+    protected abstract String getExpectedPuzzle1Result();
 
     /**
      * Get the expected result for second part of the puzzle.
      *
      * @return expected result
      */
-    protected abstract int getExpectedPuzzle2Result();
+    protected abstract String getExpectedPuzzle2Result();
 
     @Test
     public void testCorrectInput() throws IOException, URISyntaxException {

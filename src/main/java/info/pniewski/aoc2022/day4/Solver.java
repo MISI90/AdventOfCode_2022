@@ -6,15 +6,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class Solver implements PuzzleSolver {
+class Solver implements PuzzleSolver {
     @Override
-    public int solvePuzzle(List<String> inputs) {
-        return solve(inputs, this::rangesOverlapWhole);
+    public String solvePuzzle(List<String> inputs) {
+        return String.valueOf(solve(inputs, this::rangesOverlapWhole));
     }
 
     @Override
-    public int solvePuzzle2(List<String> inputs) {
-        return solve(inputs, this::rangesOverlapPartly);
+    public String solvePuzzle2(List<String> inputs) {
+        return String.valueOf(solve(inputs, this::rangesOverlapPartly));
     }
 
     private int solve(List<String> inputs, Predicate<int[]> checkRangesFunction) {

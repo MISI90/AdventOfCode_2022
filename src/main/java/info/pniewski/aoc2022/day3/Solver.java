@@ -12,18 +12,18 @@ class Solver implements PuzzleSolver {
     private final List<Character> chars = List.of(' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
 
     @Override
-    public int solvePuzzle(List<String> inputs) {
+    public String solvePuzzle(List<String> inputs) {
         int sum = 0;
         for (String input : inputs) {
             String part1 = input.substring(0, input.length() / 2);
             String part2 = input.substring(input.length() / 2);
             sum = sum + findSameLetter(part1, part2);
         }
-        return sum;
+        return String.valueOf(sum);
     }
 
     @Override
-    public int solvePuzzle2(List<String> inputs) {
+    public String solvePuzzle2(List<String> inputs) {
         int sum = 0;
         for (int i = 0; i < inputs.size() / 3; i++) {
             String part1 = inputs.get(i * 3);
@@ -31,7 +31,7 @@ class Solver implements PuzzleSolver {
             String part3 = inputs.get(i * 3 + 2);
             sum = sum + findSameLetter(part1, part2, part3);
         }
-        return sum;
+        return String.valueOf(sum);
     }
 
     /**

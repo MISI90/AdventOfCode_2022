@@ -5,22 +5,27 @@ import info.pniewski.aoc2022.helper.PuzzleSolver;
 import java.util.*;
 
 class Solver implements PuzzleSolver {
+
+    private static final int TOTAL_SPACE = 70000000;
+    private static final int EXPECTED_FREE_SPACE = 30000000;
+    private static final int MAX_FOLDER_SIZE = 100000;
+
     @Override
     public String solvePuzzle(List<String> inputs) {
         Map<String, Integer> sizes = new HashMap<>();
-        traverse(inputs, new ArrayList<>(), sizes);
-        return String.valueOf(sizes.values().stream().filter(s -> s < 100000).mapToInt(Integer::intValue).sum());
+        traverse(inputs, new LinkedList<>(), sizes);
+        return String.valueOf(sizes.values().stream().filter(s -> s < MAX_FOLDER_SIZE).mapToInt(Integer::intValue).sum());
     }
 
     @Override
     public String solvePuzzle2(List<String> inputs) {
         Map<String, Integer> sizes = new HashMap<>();
-        traverse(inputs, new ArrayList<>(), sizes);
-        int usedSpace = 70000000 - sizes.values().stream().max(Comparator.naturalOrder()).orElseThrow();
-        return String.valueOf(sizes.values().stream().sorted().filter(e -> 30000000 < usedSpace + e).findFirst().orElseThrow());
+        traverse(inputs, new LinkedList<>(), sizes);
+        int usedSpace = TOTAL_SPACE - sizes.values().stream().max(Comparator.naturalOrder()).orElseThrow();
+        return String.valueOf(sizes.values().stream().sorted().filter(e -> EXPECTED_FREE_SPACE < usedSpace + e).findFirst().orElseThrow());
     }
 
-    private static void traverse(List<String> input, List<String> current, Map<String, Integer> sizes) {
+    private static void traverse(List<String> input, LinkedList<String> current, Map<String, Integer> sizes) {
         for (String line : input) {
             var split = line.split(" ");
             if (line.startsWith("$ cd")) {
@@ -38,9 +43,9 @@ class Solver implements PuzzleSolver {
         addSubfoldersToCurrent(current, sizes);
     }
 
-    private static void addSubfoldersToCurrent(List<String> current, Map<String, Integer> sizes) {
+    private static void addSubfoldersToCurrent(LinkedList<String> current, Map<String, Integer> sizes) {
         var size = sizes.get(getKey(current));
-        current.remove(current.size() - 1);
+        current.removeLast();
         addSum(sizes, current, size);
     }
 
@@ -53,6 +58,5 @@ class Solver implements PuzzleSolver {
     private static String getKey(List<String> current) {
         return String.join("-", current);
     }
-
 
 }
